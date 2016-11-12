@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Calculadora</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            
+            
+            var operando1 = 0;
+            
+            
+            
+            function escribir (num){
+                var pantalla = document.getElementById('display');
+                var contenido = pantalla.textContent;
+                //alert(contenido);
+                //alert(num);
+                if (contenido == '0')
+                {
+                    pantalla.innerHTML = num;
+                }
+                else{
+                    pantalla.innerHTML += num;
+                }
+            }
+            
+            function procesaOperacion(op){
+                
+                var pantalla = document.getElementById('display');
+                //var operando1 = eval(pantalla.textContent);
+                
+                
+                switch(op){
+                
+                    case '+':
+                        if (operando1 == 0){
+                            operando1 = eval(pantalla.textContent);
+                        }
+                        else{    
+                            operando1 += eval(pantalla.textContent);
+                        }
+                        pantalla.innerHTML = operando1;
+                        break;
+                    case '-':
+                        break;
+                    case '*':
+                        break;
+                    
+                }
+                
+            }
+            //funcion para usar todo numeros y simbolos concatenados
+            function evaluaTodo(){
+                var pantalla = document.getElementById('display');
+                pantalla.innerHTML = eval(pantalla.textContent);
+            }
+        </script>
+    </head>
+    <body>
+        <table>
+            <tr> 
+                <td colspan="4">
+                    <div id="display" style="border: 1px black solid;">0</div>
+                </td> 
+                
+            </tr>
+            <tr>
+                <td><button onclick="escribir(1)">1</button></td>
+                <td><button onclick="escribir(2)">2</button></td>
+                <td><button onclick="escribir(3)">3</button></td>
+                <!--<td><button onclick="procesaOperacion('+')">+</button></td>
+                EL DE ABAJO ES PARA EL METODO EVALUATODO-->
+                <td><button onclick="escribir('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="escribir(4)">4</button></td>
+                <td><button onclick="escribir(5)">5</button></td>
+                <td><button onclick="escribir(6)">6</button></td>
+                <td><button onclick="">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="escribir(7)">7</button></td>
+                <td><button onclick="escribir(8)">8</button></td>
+                <td><button onclick="escribir(9)">9</button></td>
+                <td><button onclick="">*</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="escribir(0)">0</button></td>
+                <td><button onclick=""></button></td>
+                <td><button onclick=""></button></td>
+                <td><button onclick="evaluaTodo()">=</button></td>
+            </tr>
+        </table>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </body>
+</html>
